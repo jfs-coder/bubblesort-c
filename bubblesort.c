@@ -1,4 +1,4 @@
-// Bubblesort Version 0.4
+// JFS Bubblesort 
 
 #include <stdio.h>
 #include <unistd.h>
@@ -10,12 +10,17 @@ int main() {
 
 	int a, b, c, temp, swap;
 
+	const char* VERSION = "0.4";
+
 	swap = 0; // has a swap occured in an instance? we'll use this to exit faster.
 
 	int tot = 20;
 
 	// int arr[10] = {5,8,2,9,7,3,0,4,1,6};
 	int arr[20] = {1, 18, 13, 5, 12, 6, 17, 2, 8, 16, 3, 19, 4, 20, 7, 9, 10, 14, 11, 15};
+
+
+	printf("\n\n          [JFS BUBBLESORT VERSION %s]\n\n", VERSION);
 
 	for (a = 0; a < tot; a++) {
 		swap = 0;
@@ -36,7 +41,7 @@ int main() {
 		}
 		// if no swap has happened, you can exit
 		if (!swap) { 
-			printf("\nNo swap happened! Exiting early. Ended on iteration # %d instead of %d!\n", a, tot);
+			printf("\nNo swap iappened! Exiting early. Ended on iteration # %d instead of %d!\n", a, tot);
 			return 0;
 		}
 	}
