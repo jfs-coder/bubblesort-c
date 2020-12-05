@@ -2,31 +2,23 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#define clrscrn() printf("\e[1;1H\e[2J");
-
-void mySleep(int secs) {
-	printf("Sleep being called\n");
-	sleep(secs);
-}
 
 int main() {
 
+	// SEE IF YOU CAN STOP THE SEARCHING WHEN NO SWAP HAS OCCURED IN ONE ITERATION (RETURN 0?)
+
+	// turns off cursor blinking...
+	printf ("\033[?12l");
+
 	int a, b, c, swap;
 
-	int tot = 5;
+	int tot = 10;
 
-	int arr[5] = {5,8,2,9,7};
+	int arr[10] = {5,8,2,9,7,3,0,4,1,6};
 
-	for(a = 0; a < tot; a++) {
-		printf("%d ", arr[a]);
-	}
-
-	printf("\n");
-
-	mySleep(1);
-	
 	for (a = 0; a < tot; a++) {
 		for (b = 0; b < tot-1; b++) {
+			printf("_  [%d > %d] ", arr[b], arr[b+1]);
 			if(arr[b] > arr[b+1]) {
 				swap = arr[b];
 				arr[b] = arr[b+1];
@@ -35,8 +27,9 @@ int main() {
 			for(c = 0; c < tot; c++) {
 				printf("%d ", arr[c]);
 			}
-			// printf("\r");
-			mySleep(1);			
+			printf("\r");
+			fflush(stdout);
+			sleep(1);			
 		}
 		// mySleep(1);
 	}
