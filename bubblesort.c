@@ -1,6 +1,13 @@
-// Bubblesort Version 0.2
+// Bubblesort Version 0.4
 
 #include <stdio.h>
+#include <unistd.h>
+#define clrscrn() printf("\e[1;1H\e[2J");
+
+void mySleep(int secs) {
+	printf("Sleep being called\n");
+	sleep(secs);
+}
 
 int main() {
 
@@ -15,12 +22,12 @@ int main() {
 	}
 
 	printf("\n");
+
+	mySleep(1);
 	
 	for (a = 0; a < tot; a++) {
 		for (b = 0; b < tot-1; b++) {
-			printf("Is %d larger than %d?\n", arr[b], arr[b+1]);
 			if(arr[b] > arr[b+1]) {
-				printf("Yes, swaping %d -> %d\n", arr[b], arr[b+1]);
 				swap = arr[b];
 				arr[b] = arr[b+1];
 				arr[b+1] = swap;
@@ -28,10 +35,12 @@ int main() {
 			for(c = 0; c < tot; c++) {
 				printf("%d ", arr[c]);
 			}
-			printf("\n");
+			// printf("\r");
+			mySleep(1);			
 		}
+		// mySleep(1);
 	}
-
+	
 	return 0;
 }
 
