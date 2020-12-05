@@ -1,4 +1,4 @@
-// Bubblesort Version 0.1
+// Bubblesort Version 0.2
 
 #include <stdio.h>
 
@@ -9,11 +9,10 @@ int main() {
 	int arr[10] = {5,8,2,9,4,6,1,7,3,0};
 
 	for(a = 0; a < 10; a++) {
-		printf("Number %d: %d\n", a, arr[a]);
+		printf("%d ", arr[a]);
 	}
 
-	printf("---SEPARATOR---\n");
-
+	printf("\n");
 	
 	for (a = 0; a < 10; a++) {
 		for (b = 0; b < 9; b++) {
@@ -23,10 +22,10 @@ int main() {
 				arr[b+1] = swap;
 			}
 		}
-	}
-
-	for(a = 0; a < 10; a++) {
-		printf("Number %d: %d\n", a, arr[a]);
+		for(c = 0; c < 10; c++) {
+			printf("%d ", arr[c]);
+		}
+		printf("\n");
 	}
 
 	return 0;
