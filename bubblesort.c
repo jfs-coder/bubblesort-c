@@ -5,35 +5,42 @@
 
 int main() {
 
-	// SEE IF YOU CAN STOP THE SEARCHING WHEN NO SWAP HAS OCCURED IN ONE ITERATION (RETURN 0?)
-
-	// turns off cursor blinking...
+	// turns off cursor blinking...following line works in Amazon Linux 2 EC2 Machine
 	printf ("\033[?12l");
 
-	int a, b, c, swap;
+	int a, b, c, temp, swap;
 
-	int tot = 10;
+	swap = 0; // has a swap occured in an instance? we'll use this to exit faster.
 
-	int arr[10] = {5,8,2,9,7,3,0,4,1,6};
+	int tot = 20;
+
+	// int arr[10] = {5,8,2,9,7,3,0,4,1,6};
+	int arr[20] = {1, 18, 13, 5, 12, 6, 17, 2, 8, 16, 3, 19, 4, 20, 7, 9, 10, 14, 11, 15};
 
 	for (a = 0; a < tot; a++) {
+		swap = 0;
 		for (b = 0; b < tot-1; b++) {
-			printf("_  [%d > %d] ", arr[b], arr[b+1]);
+			printf("_         Iteration#: %02d  [%02d > %02d] ", a, arr[b], arr[b+1]);
 			if(arr[b] > arr[b+1]) {
-				swap = arr[b];
+				temp = arr[b];
 				arr[b] = arr[b+1];
-				arr[b+1] = swap;
+				arr[b+1] = temp;
+				swap = 1; // a swap has occured.
 			}
 			for(c = 0; c < tot; c++) {
-				printf("%d ", arr[c]);
+				printf("%02d ", arr[c]);
 			}
 			printf("\r");
 			fflush(stdout);
 			sleep(1);			
 		}
-		// mySleep(1);
+		// if no swap has happened, you can exit
+		if (!swap) { 
+			printf("\nNo swap happened! Exiting early. Ended on iteration # %d instead of %d!\n", a, tot);
+			return 0;
+		}
 	}
-	
+
 	return 0;
 }
 
